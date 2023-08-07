@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../recursos/compartidos/icono-cine.png">
+
+    <title>Películas Seleccionadas | CINEFANS</title>
+</head>
+
+<body>    
+    <header class="encabezado">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary nav-encabezado" id="id-encabezado-carrito">
+            <div class="container-fluid encabezado-cuerpo">
+                <a class="navbar-brand imagen-nav logo-img animate__animated animate__bounce" href="../index.html">
+                    <img src="../recursos/compartidos/logo-cine.png" alt="logo cine"></a>
+                <h1 class="titulo-importante1">Bienvenido a CINEFANS</h1>
+                <div class="d-flex align-items-center justify-content-end">
+                    <a href="carrito.html" class="btn btn-warning position-relative">
+                        <img src="./recursos/compartidos/carrito.png" alt="Carrito" width="60">
+                        <span id="carrito"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <a href="#id-footer-carrito"><img src="../recursos/compartidos/down-arrow.png" alt="down"></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="conainer my-5 cartelera">
+        <h1 class="titulo-importante1s animate__animated animate__backInDown text-center">PELÍCULAS SELECCIONADAS</h1>
+        <div id="entradasVendidas" class=" contenedor-cartelera row ">
+        </div>
+    </main>
+
+    <footer id="id-footer-carrito" class="pie">
+        <a href="#id-encabezado-carrito"><img src="../recursos/compartidos/up-arrow.png" alt="up"></a>
+        <section class="bloque-footer">
+            <article class="bloque-mas-info1">
+                <div>
+                    <h2 class="titulo-importante2">CineFans</h2>
+                    <ul class="lista1">
+                        <li class="hover-subrayado">Quiénes somos</li>
+                        <li class="hover-subrayado">Trabaja con nosotros</li>
+                        <li class="hover-subrayado">Unite al Club CineFans</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="bloque-mas-info2">
+                <div>
+                    <h2 class="titulo-importante2">Información</h2>
+                    <ul class="lista2">
+                        <li class="hover-subrayado">Festejá tu cumple</li>
+                        <li class="hover-subrayado">Promos Vigentes</li>
+                        <li class="hover-subrayado">Calificaciones</li>
+                        <li class="hover-subrayado">Ventas corporativas</li>
+                        <li class="hover-subrayado">Contactanos</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="redes-sociales">
+                <button class="btn btn-primary"><span class="fa  fa-brands  fa-facebook"></span> | Facebook</button>
+                <button class="btn btn-info"><span class="fa fa-brands fa-twitter"></span> | Twitter</button>
+                <button class="btn btn-secondary"><span class="fa fa-brands fa-instagram"></span> |
+                    Instagram</button>
+                <button class="btn btn-danger"><span class="fa fa-brands fa-youtube"></span> | Youtube</button>
+            </article>
+        </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+        
+    <script src="./js/entrada.js"></script>
+    <script src="./js/carrito.js"></script>
+    <script src="./js/appCarrito.js"></script>
+
+</body>
+
+</html>

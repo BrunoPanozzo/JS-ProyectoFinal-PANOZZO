@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "nombre": "ELEMENTOS",
+        "genero": "Animación",
+        "calificacion": "Apta para todo público",
+        "sinopsis": "Elemental, de Disney y Pixar, es un nuevo largometraje original ambientado en Elemental City, donde conviven habitantes de fuego, agua, tierra y aire. La protagonista de la historia es Ember, una joven fuerte, ingeniosa y con carácter, cuya amistad con un chico divertido, sensible y tranquilo, llamado Wade, cambia su perspectiva sobre el mundo en el que viven.",
+        "imagen":"elementos.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "FLASH",
+        "genero": "Acción",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"Los mundos chocan en Flash cuando Barry usa sus superpoderes para viajar en el tiempo y cambiar los eventos del pasado. Pero cuando su intento de salvar a su familia altera el futuro sin darse cuenta, Barry queda atrapado en una realidad en la que el general Zod ha regresado, amenazando con la aniquilación, y no hay superhéroes a los que recurrir.",
+        "imagen":"flash.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "TRANSFORMERS: EL DESPERTAR DE LAS BESTIAS",
+        "genero": "Acción",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"Vuelven la acción y el espectáculo que han cautivado a los cinéfilos de todo el mundo, #Transformers: El despertar de las bestias llevará al público a una aventura alrededor del mundo en los 90 con los Autobots en introducirá a una nueva generación de Transformers, los Maximals, a la batalla existente en la tierra entre Autobots y Decepticons.",
+        "imagen":"transformers.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "BOOGEYMAN: TU MIEDO ES REAL",
+        "genero": "Terror",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"Es un clásico del cine de terror al estilo de “Poltergeist”, que asusta y muestra un costado más humano en igual medidas. Las hermanas Sadie y Sawyer, cuya madre murió recientemente y cuyo padre, un terapeuta, apenas les presta atención, se enfrentan a una criatura perversa que llegó junto a un paciente de su padre y se alimenta del sufrimiento de sus víctimas.",
+        "imagen":"boogeyman.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "SPIDER-MAN: A TRAVÉS DEL SPIDER-VERSO",
+        "genero": "Animación",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"Miles Morales regresa para el siguiente capítulo de la saga Spider-Verse, ganadora de un Oscar®, una aventura épica que transportará al simpático Spider-Man de Brooklyn a tiempo completo a través del Multiverso para unir fuerzas con Gwen Stacy y un nuevo equipo de Spider-People para enfrentarse a un villano más poderoso que cualquier cosa que hayan encontrado.",
+        "imagen":"spiderman.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "RAPIDOS Y FURIOSOS X",
+        "genero": "Acción",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"Comienza el final del camino. Rápidos y furiosos X, la décima película de la saga Rápidos y furiosos, es el capítulo final de una de las franquicias más populares y queridas del cine, ahora en su tercera década y continuando con el mismo elenco y personajes que cuando comenzó.",
+        "imagen":"rapidosyfuriosos.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "SUPER MARIO BROS: LA PELICULA",
+        "genero": "Animación",
+        "calificacion": "Apta para mayores de 13 años con reservas",
+        "sinopsis":"Dirigida por by Aaron Horvath y Michael Jelenic (colaboradores en Los Jóvenes Titanes en acción, Jóvenes Titanes en acción: la película) de un guion de Matthew Fogel (La gran aventura LEGO 2, Minions: Nace un villano), la película es protagonizada por Chris Pratt como Mario, Anya Taylor-Joy como la Princesa Peach, Charlie Day como Luigi.",
+        "imagen":"super mario bros.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "INDIANA JONES Y EL DIAL DEL DESTINO",
+        "genero": "Acción Aventuras",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"El arqueólogo Indiana Jones deberá emprender otra aventura contra el tiempo para intentar recuperar un dial legendario que puede cambiar el curso de la historia. Acompañado por su ahijada, Jones pronto se encuentra enfrentándose a Jürgen Voller, un ex nazi que trabaja para la NASA.",
+        "imagen":"indiana jones.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "MISION IMPOSIBLE: SENTENCIA MORTAL PARTE 1",
+        "genero": "Acción",
+        "calificacion": "Apta para mayores de 13 años",
+        "sinopsis":"Ethan Hunt (Tom Cruise) y su equipo del FMI se embarcan en su misión más peligrosa hasta la fecha: Localizar, antes de que caiga en las manos equivocadas, una nueva y terrorífica arma que amenaza a toda la humanidad. En esta tesitura, y con unas fuerzas oscuras del pasado de Ethan acechando, comienza una carrera mortal alrededor del mundo en la que está en juego el control del futuro y el destino del planeta.",
+        "imagen":"mision imposible.jpg"
+    }
+]
