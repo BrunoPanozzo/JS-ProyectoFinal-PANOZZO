@@ -1,13 +1,16 @@
 const precioEntrada = 700;  //precio unico para todas las entradas
 
+//guardo en el localstorage el carrito de entradas vendidas
 function guardarEntradasVendidasEnCarritoLS(entradas) {
     localStorage.setItem("carrito", JSON.stringify(entradas));
 }
 
+//recupero del localstorage el carrito actual de entradas vendidas
 function cargarEntradasVendidasDeCarritoLS() {
     return JSON.parse(localStorage.getItem("carrito")) || [];
 }
 
+//borro todas las entradas del carrito
 function vaciarCarrito() {
     Swal.fire({
         title: 'Está seguro de vaciar el carrito de entradas?',
@@ -29,6 +32,7 @@ function vaciarCarrito() {
     })
 }
 
+//agrego a mi carrito actual una compra realizada
 function agregarAlCarrito(e, idPelicula, cantidadEntradas) {
     //variables para el manejo de datos tipo DATE
     let miFecha;
@@ -57,7 +61,7 @@ function agregarAlCarrito(e, idPelicula, cantidadEntradas) {
     const entradasVendidas = cargarEntradasVendidasDeCarritoLS();
 
     //VERIFICO SI EXISTEN ENTRADAS PARA LA PELICULA ELEGIDA
-    //DE EXISTIR ACTUALIZA LA ENTRADA, CASO CONTRARIO CREA EL OBJETO Y LO INCORPORA AL ARREGLO
+    //DE EXISTIR ACTUALIZA LA ENTRADA, CASO CONTRARIO CREA EL OBJETO Y LO INCORPORA AL CARRITO
     existe = entradasVendidas.some(entrada => entrada.idPelicula == idPelicula);
     if (!existe) {
         nuevaEntradaVendida = new Entrada(idPelicula, sFecha, sHora, cantidadEntradas);
@@ -84,9 +88,10 @@ function agregarAlCarrito(e, idPelicula, cantidadEntradas) {
           y: 10 
         },
         }).showToast();
-
 }
 
+
+//elimina una entrada determinada del carrito
 function eliminarEntradaCarrito(idPelicula) {
     let nombrePelicula = buscarNombrePelicula(entrada.idPelicula);
     Swal.fire({
@@ -111,16 +116,19 @@ function eliminarEntradaCarrito(idPelicula) {
     })
 }
 
+//calcula el total de entradas de mi carrito
 function calcularTotalEntradasCarrito() {
     const entradasVendidas = cargarEntradasVendidasDeCarritoLS();
     return entradasVendidas.length;
 }
 
+//calcula el total de la compra que incluye todas las entradas de todas las peliculas
 function calcularTotalCarrito() {
     const entradasVendidas = cargarEntradasVendidasDeCarritoLS();
     return entradasVendidas.reduce((acc, entrada) => acc + entrada.precio, 0);
 }
 
+//muestra sobre la imagen del carrito un número identificando la cantidad de entradas de mi carrito
 function mostrarBotonCarrito() {
     let tagCarrito = document.getElementById("carrito");
     tagCarrito.innerText = calcularTotalEntradasCarrito();

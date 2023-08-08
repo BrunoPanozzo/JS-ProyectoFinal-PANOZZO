@@ -1,3 +1,5 @@
+//con la informacion del carrito de entradas vendidas, las muestra por pantalla
+//creando dinamicamente el DOM correspondiente
 function cargarEntradasVendidasCarrito() {
     const entradasVendidas = cargarEntradasVendidasDeCarritoLS();
     let cards = "";
@@ -91,6 +93,7 @@ function cargarEntradasVendidasCarrito() {
     tagCards.style.display = 'none';
 }
 
+//dada el id de una pelicula recupera su imagen asociada
 function buscarImagenPelicula(idPelicula) {
     let peliculas = cargarPeliculasEnCartelLS();
     let pelicula = getPelicula(peliculas, idPelicula);
@@ -104,6 +107,7 @@ function getPelicula(peliculas, idPelicula) {
     }
 }
 
+//dada el id de una pelicula recupera su nombre asociado
 function buscarNombrePelicula(idPelicula) {
     let peliculas = cargarPeliculasEnCartelLS();
     let pelicula = getPelicula(peliculas, idPelicula);

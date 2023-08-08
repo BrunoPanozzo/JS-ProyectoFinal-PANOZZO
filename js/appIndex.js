@@ -1,7 +1,10 @@
+//recupera del archivo JSON local los datos de las peliculas 
 async function traerPeliculasEnCartel() {
     return await fetch('../json/peliculas.json');
 }
 
+//con la informacion de las peliculas, extraida del archivo JSON local, las muestra por pantalla
+//creando dinamicamente el DOM correspondiente
 async function cargarPeliculasEnCartel() {
     const response = await traerPeliculasEnCartel();
     if (response.ok) {
@@ -24,6 +27,7 @@ async function cargarPeliculasEnCartel() {
     }
 }
 
+//crea la grilla de cards para cada pelicula
 function dibujarGrillaPeliculas(peliculas) {
     let cards = "";
     let tagCards;
@@ -66,6 +70,7 @@ function dibujarGrillaPeliculas(peliculas) {
     tagCards.style.display = 'block';
 }
 
+//configura los eventos de cada botón asociada a una pelicula
 function seteoEventosEnBotonesComprar() {
     let tag1 = document.getElementById("comprarEntradas1");
     let tagInput1 = document.getElementById("cantidadEntradas1");
@@ -108,10 +113,12 @@ cargarPeliculasEnCartel();
 
 mostrarBotonCarrito();
 
+//valida si la entrada del usuario es un dato válido
 function validar_E_IngresarAlCarrito(e, idPelicula, cantidadEntradas) {
     esEnteroPositivo(cantidadEntradas) ? agregarAlCarrito(e, idPelicula, cantidadEntradas) : informarEntradaNoVAlida();
 }
 
+//muestra por pantalla un alerta al usuario de entrada incorrecta ingresada
 function informarEntradaNoVAlida() {
     Toastify({
         text: "Ingresó un valor inválido. Debe ingresar un número positivo.",        
@@ -125,12 +132,12 @@ function informarEntradaNoVAlida() {
         }).showToast();
 }
 
-//DETERMINA SI UN VALOR PASADO COMO PARÁMETRO ES UN ENTERO VÁLIDO
+//determina sin un valor es un numero positivo
 function esEnteroPositivo(valor) {
     return (!isNaN(valor) && (valor > 0));
 }
 
-//para no volver a pedir las peliculas a la API, las guardo en el local storage
+//para no volver a leer todas las peliculas en cartel del archivo JSON, o API externa, las guardo en el local storage
 function guardarPeliculasLS(peliculas) {
     localStorage.setItem("peliculasEnCartel", JSON.stringify(peliculas));
 }

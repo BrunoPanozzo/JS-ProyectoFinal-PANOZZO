@@ -1,4 +1,3 @@
-//DEFINICIÓN DE CLASES
 class Entrada {
 
     constructor(idPelicula, fecha, hora, cantidad) {
