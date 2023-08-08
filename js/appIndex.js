@@ -8,6 +8,7 @@ async function cargarPeliculasEnCartel() {
         const peliculas = await response.json(); ///convierto los objetos de json a objetos javascript
         dibujarGrillaPeliculas(peliculas);
         seteoEventosEnBotonesComprar();
+        guardarPeliculasLS(peliculas);
     } else {
         //pendiente msje con libreria tostify informando error de fetch
     }
@@ -44,6 +45,12 @@ function dibujarGrillaPeliculas(peliculas) {
 
     tagCards = document.getElementById("peliculasEnCartel");
     tagCards.innerHTML = cards;
+
+    //debo ocultar el carrito
+    tagCards = document.getElementById("seccionEntradasVendidas");
+    tagCards.style.display = 'none';
+    tagCards = document.getElementById("seccionPeliculasEnCartel");
+    tagCards.style.display = 'block';
 }
 
 function seteoEventosEnBotonesComprar() {
@@ -87,4 +94,13 @@ function seteoEventosEnBotonesComprar() {
 cargarPeliculasEnCartel();
 
 mostrarBotonCarrito();
+
+//para no volver a pedir las peliculas a la API, las guardo en el local storage
+function guardarPeliculasLS(peliculas) {
+    localStorage.setItem("peliculasEnCartel", JSON.stringify(peliculas));
+}
+
+function cargarPeliculasEnCartelLS() {
+    return JSON.parse(localStorage.getItem("peliculasEnCartel")) || [];
+}
 

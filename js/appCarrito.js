@@ -16,27 +16,9 @@ function cargarEntradasVendidasCarrito() {
                 `;
 
         for (entrada of entradasVendidas) {
-            //imagen = buscarImagenPelicula(entrada.idPelicula);
-            //nombrePelicula = buscarNombrePelicula(entrada.idPelicula);
-            buscarImagenPelicula(entrada.idPelicula)
-            .then ((img) => {
-                imagen = img;
-                console.log("1 " + img + " 2");
-
-            })
-            .catch ((error) => {
-                console.log(error);
-            })
-            ;
-            buscarNombrePelicula(entrada.idPelicula)
-            .then ((nom) => {
-                nombrePelicula = nom
-            })
-            .catch ((error) => {
-                console.log(error);
-            })
-            console.log("1" + imagen + nombrePelicula);
-            ;
+            imagen = buscarImagenPelicula(entrada.idPelicula);
+            console.log("11"+ imagen);
+            nombrePelicula = buscarNombrePelicula(entrada.idPelicula);           
             cards += `
                     <tr>
                         <td>
@@ -73,59 +55,32 @@ function cargarEntradasVendidasCarrito() {
     }
     tagCards = document.getElementById("entradasVendidas");
     tagCards.innerHTML = cards;
+
+    //debo ocultar las peliculas en cartel
+    tagCards = document.getElementById("seccionPeliculasEnCartel");
+    tagCards.style.display = 'none';
+    tagCards = document.getElementById("seccionEntradasVendidas");
+    tagCards.style.display = 'block';
+
 }
 
-async function traerPeliculasEnCartel() {
-    return await fetch('../json/peliculas.json');
+function buscarImagenPelicula(idPelicula) {    
+    let peliculas = cargarPeliculasEnCartelLS();
+    let pelicula = getPelicula(peliculas, idPelicula);
+    return pelicula.imagen;
 }
 
-async function cargarPeliculasEnCartel() {
-    const response = await traerPeliculasEnCartel();
-    if (response.ok) {
-        const peliculas = await response.json();
-        return peliculas;
+function getPelicula(peliculas, idPelicula) {    
+    for (const pelicula of peliculas) {
+        if (pelicula.id === idPelicula)
+            return pelicula;
     }
-    else {
-        //pendiente msje con libreria tostify
-    }
 }
 
-async function buscarImagenPelicula(idPelicula) {    
-    await cargarPeliculasEnCartel()
-        .then((peliculas) => {
-            return getImagenPelicula(peliculas, idPelicula);            
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}
-
-function getImagenPelicula(peliculas, idPelicula) {
-    peliculas.forEach(({id,imagen}) => {
-        if (id === idPelicula)
-        {
-            return imagen;
-        }
-    });
-}
-
-async function buscarNombrePelicula(idPelicula) {
-    await cargarPeliculasEnCartel()
-        .then((peliculas) => {
-            return getNombrePelicula(peliculas, idPelicula)
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}
-
-function getNombrePelicula(peliculas, idPelicula) {
-    peliculas.forEach(({id,nombre}) => {
-        if (id === idPelicula)
-        {
-            return nombre;
-        }
-    });
+function buscarNombrePelicula(idPelicula) {
+    let peliculas = cargarPeliculasEnCartelLS();
+    let pelicula = getPelicula(peliculas, idPelicula);
+    return pelicula.nombre;
 }
 
 cargarEntradasVendidasCarrito();
