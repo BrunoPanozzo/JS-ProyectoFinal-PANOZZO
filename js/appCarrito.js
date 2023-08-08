@@ -34,7 +34,6 @@ function cargarEntradasVendidasCarrito() {
 
         for (entrada of entradasVendidas) {
             imagen = buscarImagenPelicula(entrada.idPelicula);
-            console.log("11" + imagen);
             nombrePelicula = buscarNombrePelicula(entrada.idPelicula);
             cards += `<tbody class="table-group-divider">
                     <tr>
@@ -68,28 +67,28 @@ function cargarEntradasVendidasCarrito() {
     else {
         cards = `
                 <div class="alert alert-danger text center" role="alert">
-                No se encontraron entradas compradas en el carrito!
+                No se encontraron entradas en el carrito!
                 </div>
                  `;
-    }  
+    }     
 
-    //OCULTO LA SECCION DE PELICULAS EN CARTEL
-    tagCards = document.getElementById("seccionPeliculasEnCartel");
-    tagCards.style.display = 'none';
-
+    //calculo el alto en funcion de la cantidad de entradas vendidas
+    let cantidadEntradas = calcularTotalEntradasCarrito();
+    let alto = 225 * cantidadEntradas + 60;  
+    
     //MUESTRO LA SECCION DEL CARRITO
     tagCards = document.getElementById("entradasVendidas");
     tagCards.innerHTML = cards;
-    
-    //calculo el alto en funcion de la cantidad de entradas vendidas
-    let cantidadEntradas = calcularTotalEntradasCarrito();
-    tagCards = document.getElementById("seccionEntradasVendidas");
-    let alto = 225 * cantidadEntradas + 60;
-    console.log(tagCards);
-    console.log(cantidadEntradas);
-    console.log(alto);
     tagCards.style.height = alto + 'px';
     tagCards.style.display = 'block';
+    
+    let tagSeccion = document.getElementById("seccionEntradasVendidas");     
+    tagSeccion.style.height = alto + 'px';
+    tagSeccion.style.display = 'block';
+    
+    //OCULTO LA SECCION DE PELICULAS EN CARTEL
+    tagCards = document.getElementById("seccionPeliculasEnCartel");
+    tagCards.style.display = 'none';
 }
 
 function buscarImagenPelicula(idPelicula) {

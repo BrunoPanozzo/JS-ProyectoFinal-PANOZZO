@@ -39,11 +39,11 @@ function dibujarGrillaPeliculas(peliculas) {
                             <div class="info-pelicula" id="pelicula1">
                                 <p class="nombre-pelicula titulo-importante4 hoverTituloImportante">` + nombre + `</p>
                                 <p class="genero-pelicula">` + genero + `</p>
-                                <p class="resumen-pelicula">`+ sinopsis + `</p>
+                                <p class="resumen-pelicula" style="color:black">`+ sinopsis + `</p>
                             </div>
 
                             <div class="card-body border border-info bg-info-subtle">
-                                        <label class="card-title" for="cantidadEntradas">Ingrese cantidad de Entradas</label>
+                                        <label class="card-title" for="cantidadEntradas" style="color:black">Ingrese cantidad de Entradas</label>
                                         <input type="text" id="cantidadEntradas${index}" size="5">                                    
                                         <button id="comprarEntradas${index}" class="btn btn-primary">Comprar Entradas</button>                                        
                             </div>                                

@@ -8,20 +8,19 @@
   padding: 0;
   box-sizing: border-box; }
 
-/*VARIABLES GLOBALES*/
-.configBasica_GridPage, .cartelera .contenedor-cartelera {
+.cartelera .contenedor-cartelera {
   margin: 25px auto;
   width: 1600px;
   background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.401); }
 
-.config-titulo-importante1, .homepage .bloque-mas-info .textos-varios .titulo-importante1, .cartelera .titulo-importante1, .combos .titulo-importante1, .titulos .titulo-importante1, .proximos-estrenos .titulo-importante1 {
+.titulo-importante1, .cartelera  {
   text-align: left;
   color: #dffffb;
   margin: 50px;
   padding-top: 30px; }
 
-.config-titulo-importante4, .cartelera .contenedor-cartelera .film .info-pelicula .titulo-importante4, .combos .contenedor-combos .film .info-combo .titulo-importante4, .proximos-estrenos .contenedor-proximos-estrenos .film .info-pelicula .titulo-importante4 {
+.cartelera .contenedor-cartelera .film .info-pelicula .titulo-importante4, .film {
   text-align: left;
   color: #e30a0a;
   margin: 10px; }
@@ -42,12 +41,7 @@
   align-content: space-between; }
   .nav-encabezado .encabezado-cuerpo .logo-img img {
     height: 12vh; }
-  .nav-encabezado .encabezado-cuerpo .mi-navbar .lista-enlaces .enlace a {
-    text-decoration: none;
-    color: #dffffb;
-    font-size: 20px;
-    margin: 15px; }
-    .nav-encabezado .encabezado-cuerpo h1 {
+      .nav-encabezado .encabezado-cuerpo h1 {
       color: #ebd219;
       background-color: transparent;
       font-weight: bold; }
@@ -57,18 +51,6 @@
         font-weight: bold; }
   
 
-/* MEDIA QUERIES*/
-@media (min-width: 600) and (max-width: 1000) {
-  .nav-encabezado .encabezado-cuerpo .mi-navbar .lista-enlaces .enlace a {
-    font-size: 15px; } }
-
-@media (min-width: 350px) and (max-width: 599px) {
-  .nav-encabezado .encabezado-cuerpo .mi-navbar .lista-enlaces .enlace a {
-    font-size: 12px; } }
-
-@media (max-width: 349px) {
-  .nav-encabezado .encabezado-cuerpo .mi-navbar .lista-enlaces .enlace a {
-    font-size: 10px; } }
 
 .pie {
   padding-bottom: 20px;
@@ -140,7 +122,6 @@
       .pie .bloque-footer .redes-sociales .btn-secondary {
         background-color: blueviolet; }
 
-/* MEDIA QUERIES*/
 @media (min-width: 1012px) and (max-width: 1400px) {
   .pie .bloque-footer {
     padding-left: 150px; }
@@ -270,7 +251,6 @@
       padding: 10px; }
       
       
-/* MEDIA QUERIES*/
 @media (min-width: 1400px) and (max-width: 1600px) {
   .cartelera .titulo-importante1 {
     font-size: 70px; }
