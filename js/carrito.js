@@ -9,9 +9,24 @@ function cargarEntradasVendidasDeCarritoLS() {
 }
 
 function vaciarCarrito() {
-    localStorage.removeItem("carrito");    
-    cargarEntradasVendidasCarrito();
-    mostrarBotonCarrito();  
+    Swal.fire({
+        title: 'Está seguro de vaciar el carrito de entradas?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar.',
+        cancelButtonText: 'Cancelar.'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Carrito vaciado!',
+                icon: 'success',
+                text: 'Se han borrado todas la compras de entradas.'
+            })
+            localStorage.removeItem("carrito");
+            cargarEntradasVendidasCarrito();
+            mostrarBotonCarrito();
+        }
+    })
 }
 
 function agregarAlCarrito(e, idPelicula, cantidadEntradas) {
@@ -58,15 +73,42 @@ function agregarAlCarrito(e, idPelicula, cantidadEntradas) {
     guardarEntradasVendidasEnCarritoLS(entradasVendidas);
     mostrarBotonCarrito();
 
-    //falta msje de producto agregado con exito al carrito
+    let nombrePelicula = buscarNombrePelicula(idPelicula);
+    Toastify({
+        text: "Se agregó con éxito la compra de " + cantidadEntradas + " entradas para la película " + nombrePelicula + ".",        
+        duration: 2000,
+        gravity: 'top',  
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        offset: {
+          x: 10, 
+          y: 10 
+        },
+        }).showToast();
+
 }
 
 function eliminarEntradaCarrito(idPelicula) {
-    const carrito = cargarEntradasVendidasDeCarritoLS();
-    const entradas = carrito.filter(item => item.idPelicula !== idPelicula);
-    guardarEntradasVendidasEnCarritoLS(entradas);
-    cargarEntradasVendidasCarrito();
-    mostrarBotonCarrito();  
+    let nombrePelicula = buscarNombrePelicula(entrada.idPelicula);
+    Swal.fire({
+        title: 'Está seguro de eliminar la compra de entradas para ' + nombrePelicula + '?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, confirmo.',
+        cancelButtonText: 'No, no quiero.'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Borrado!',
+                icon: 'success',
+                text: 'La compra de entradas para ' + nombrePelicula + ' ha sido borrada.'
+            })
+            const carrito = cargarEntradasVendidasDeCarritoLS();
+            const entradas = carrito.filter(item => item.idPelicula !== idPelicula);
+            guardarEntradasVendidasEnCarritoLS(entradas);
+            cargarEntradasVendidasCarrito();
+            mostrarBotonCarrito();
+        }
+    })
 }
 
 function calcularTotalEntradasCarrito() {
@@ -76,10 +118,10 @@ function calcularTotalEntradasCarrito() {
 
 function calcularTotalCarrito() {
     const entradasVendidas = cargarEntradasVendidasDeCarritoLS();
-    return entradasVendidas.reduce((acc,entrada) => acc + entrada.precio, 0);
+    return entradasVendidas.reduce((acc, entrada) => acc + entrada.precio, 0);
 }
 
-function mostrarBotonCarrito() {    
+function mostrarBotonCarrito() {
     let tagCarrito = document.getElementById("carrito");
     tagCarrito.innerText = calcularTotalEntradasCarrito();
 }           

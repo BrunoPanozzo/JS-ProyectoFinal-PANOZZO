@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../recursos/compartidos/icono-cine.png">
-
     <title>Cartelera | CINEFANS</title>
 </head>
 
@@ -32,7 +33,7 @@
                         <img src="./recursos/compartidos/carrito.png" alt="Carrito" width="60">
                         <span id="carrito"
                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-                    <!-- </a> -->
+                        <!-- </a> -->
                     </button>
                 </div>
             </div>
@@ -45,12 +46,12 @@
     <main class="conainer my-5 cartelera">
         <div id="seccionPeliculasEnCartel">
             <p class="titulo-importante1 animate__animated animate__backInDown">EN CARTELERA</p>
-            <div id="peliculasEnCartel" class=" contenedor-cartelera row ">
+            <div id="peliculasEnCartel" class=" contenedor-cartelera row">
             </div>
         </div>
         <div id="seccionEntradasVendidas">
             <p class="titulo-importante1 animate__animated animate__backInDown text-center">PELÍCULAS SELECCIONADAS</p>
-            <div id="entradasVendidas" class=" contenedor-cartelera row ">
+            <div id="entradasVendidas" class="contenedor-cartelera row">
             </div>
         </div>
     </main>
@@ -93,12 +94,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
     <script src="./js/entrada.js"></script>
     <script src="./js/carrito.js"></script>
     <script src="./js/appIndex.js"></script>
     <script src="./js/appCarrito.js"></script>
-
 
 </body>
 

@@ -7,44 +7,63 @@ function cargarEntradasVendidasCarrito() {
 
     if (calcularTotalEntradasCarrito() > 0) {
         cards += `
-                <table class="table">
-                <tr>
-                    <td colspan="5" class="text-end">
-                        <button class="btn btn-warning" onclick="vaciarCarrito()">Vaciar Carrito</button>
-                    </td>
-                </tr>        
+                <table id="carritoEntradasVendidas" class="table table-striped table-hover">                
+                <thead>
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nombre Película</th>                    
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Cantidad Entradas</th>
+                    <th scope="col"></th>
+                    <th scope="col">Precio Total</th>
+                    <th scope="col">
+                        <td class="text-end">
+                            <button class="btn btn-warning" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                        </td>
+                    </th>
+                    </tr>                    
+                </thead>
+                      
                 `;
 
         for (entrada of entradasVendidas) {
             imagen = buscarImagenPelicula(entrada.idPelicula);
-            console.log("11"+ imagen);
-            nombrePelicula = buscarNombrePelicula(entrada.idPelicula);           
-            cards += `
+            console.log("11" + imagen);
+            nombrePelicula = buscarNombrePelicula(entrada.idPelicula);
+            cards += `<tbody class="table-group-divider">
                     <tr>
                         <td>
                             <img id="imgPelicula1" class="imgfilm" src="${"../recursos/cartelera/" + imagen}" alt="${nombrePelicula}" width="90">
                         </td>
-                        <td>
+                        <td colspan="8">
                             <p class="nombre-pelicula titulo-importante4 hoverTituloImportante">${nombrePelicula}</p>  
                         </td>
-                        <td>
+                        <td colspan="2">
                             <p class="nombre-pelicula titulo-importante4 hoverTituloImportante">${entrada.cantidad}</p>  
                         </td>
                         <td>
-                            <p class="nombre-pelicula titulo-importante4 hoverTituloImportante">${entrada.precio}</p>  
+                            <p class="nombre-pelicula titulo-importante4 hoverTituloImportante fw-bolder">${entrada.precio}</p>  
                         </td>
-                        <td class="text-end" >
+                        <td class="text-end">
                             <button class="btn btn-warning" onclick="eliminarEntradaCarrito(${entrada.idPelicula})"><img src="./recursos/compartidos/trash.png" alt="Eliminar Entrada" width="30"></button>
                         </td>
                     </tr>                    
                     `
         }
 
+        cards += ``;
         cards += `<tr>
-                    <td colspan="3" class="text-end">Total a Pagar</td>
-                    <td>$${calcularTotalCarrito()}</td>
+                    <td colspan="11" class="text-end fw-bolder">Total a Pagar</td>
+                    <td class="fw-bolder">$${calcularTotalCarrito()}</td>
                 </tr>`;
-        cards += `</table>`;
+        cards += `</tbody>
+                  </table>`;
     }
     else {
         cards = `
@@ -52,25 +71,34 @@ function cargarEntradasVendidasCarrito() {
                 No se encontraron entradas compradas en el carrito!
                 </div>
                  `;
-    }
-    tagCards = document.getElementById("entradasVendidas");
-    tagCards.innerHTML = cards;
+    }  
 
-    //debo ocultar las peliculas en cartel
+    //OCULTO LA SECCION DE PELICULAS EN CARTEL
     tagCards = document.getElementById("seccionPeliculasEnCartel");
     tagCards.style.display = 'none';
-    tagCards = document.getElementById("seccionEntradasVendidas");
-    tagCards.style.display = 'block';
 
+    //MUESTRO LA SECCION DEL CARRITO
+    tagCards = document.getElementById("entradasVendidas");
+    tagCards.innerHTML = cards;
+    
+    //calculo el alto en funcion de la cantidad de entradas vendidas
+    let cantidadEntradas = calcularTotalEntradasCarrito();
+    tagCards = document.getElementById("seccionEntradasVendidas");
+    let alto = 225 * cantidadEntradas + 60;
+    console.log(tagCards);
+    console.log(cantidadEntradas);
+    console.log(alto);
+    tagCards.style.height = alto + 'px';
+    tagCards.style.display = 'block';
 }
 
-function buscarImagenPelicula(idPelicula) {    
+function buscarImagenPelicula(idPelicula) {
     let peliculas = cargarPeliculasEnCartelLS();
     let pelicula = getPelicula(peliculas, idPelicula);
     return pelicula.imagen;
 }
 
-function getPelicula(peliculas, idPelicula) {    
+function getPelicula(peliculas, idPelicula) {
     for (const pelicula of peliculas) {
         if (pelicula.id === idPelicula)
             return pelicula;
