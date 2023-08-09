@@ -40,7 +40,7 @@ function cargarEntradasVendidasCarrito() {
             cards += `<tbody class="table-group-divider">
                     <tr>
                         <td>
-                            <img id="imgPelicula1" class="imgfilm" src="${"../recursos/cartelera/" + imagen}" alt="${nombrePelicula}" width="90">
+                            <img id="imgPelicula1" class="imgfilm" src="${"./recursos/cartelera/" + imagen}" alt="${nombrePelicula}" width="90">
                         </td>
                         <td colspan="8">
                             <p class="nombre-pelicula titulo-importante4 hoverTituloImportante">${nombrePelicula}</p>  

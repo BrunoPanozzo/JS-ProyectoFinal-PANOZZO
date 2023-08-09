@@ -1,6 +1,6 @@
 //recupera del archivo JSON local los datos de las peliculas 
 async function traerPeliculasEnCartel() {
-    return await fetch('../json/peliculas.json');
+    return await fetch('./json/peliculas.json');
 }
 
 //con la informacion de las peliculas, extraida del archivo JSON local, las muestra por pantalla
@@ -39,7 +39,7 @@ function dibujarGrillaPeliculas(peliculas) {
                 <div>
                     <div class="card border-0">
                         <article class="film film${index}">
-                            <img id="imgPelicula1" class="imgfilm" src="../recursos/cartelera/` + imagen + `" alt="` + nombre + `">
+                            <img id="imgPelicula1" class="imgfilm" src="./recursos/cartelera/` + imagen + `" alt="` + nombre + `">
                             <div class="info-pelicula" id="pelicula1">
                                 <p class="nombre-pelicula titulo-importante4 hoverTituloImportante">` + nombre + `</p>
                                 <p class="genero-pelicula">` + genero + `</p>
